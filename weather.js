@@ -4,7 +4,7 @@ var weatherDetailsTableEl = document.getElementById('weatherDetailsTable')
 
 
 function handleGetWeather(userInput){
-var requestUrl = `https://api.opencagedata.com/geocode/v1/json?q=${userInput}&key=0639f907a9094fdf9b691df6cd367823`
+var requestUrl = `https://api.opencagedata.com/geocode/v1/json?q=${userInput}&units=imperial&key=0639f907a9094fdf9b691df6cd367823`
   fetch(requestUrl)
     .then(function (response){
       return response.json();
@@ -22,7 +22,7 @@ var requestUrl = `https://api.opencagedata.com/geocode/v1/json?q=${userInput}&ke
 
 }
 function getWeatherApi(latLon) {
-    var requestUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latLon.lat}&lon=${latLon.lng}&appid=a540ec06d4c60adcc15148c69b2c836f`
+    var requestUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latLon.lat}&lon=${latLon.lng}&units=imperial&appid=a540ec06d4c60adcc15148c69b2c836f`
      fetch(requestUrl)
        .then(function (response) {
          return response.json();
