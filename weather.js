@@ -1,6 +1,7 @@
 
 
 var weatherDetailsTableEl = document.getElementById('weatherDetailsTable')
+var forecastDetailsEl = document.getElementById('forecastDetails');
 
 
 function handleGetWeather(userInput){
@@ -35,7 +36,7 @@ function getWeatherApi(latLon) {
 
          tableRow.innerHTML = 
       
-        ` <td> ${data.current.temp}</td>
+        `<td> ${data.current.temp}</td>
          <td> ${data.current.humidity} </td>
          <td> ${data.current.uvi} </td>
          <td> ${data.current.wind_speed} </td>`;
@@ -47,6 +48,30 @@ function getWeatherApi(latLon) {
   //  http://api.openweathermap.org/data/2.5/forecast?q=chicago&appid=a540ec06d4c60adcc15148c69b2c836f
 
 
+
+function getWeatherApi(userInput) {
+    var requestUrl =  `http://api.openweathermap.org/data/2.5/forecast?q=${userInput}&units=imperial&appid=a540ec06d4c60adcc15148c69b2c836f`
+
+     fetch(requestUrl)
+       .then(function (response) {
+         return response.json();
+       })
+       .then(function (data) {
+       //Using console.log to examine the data
+         console.log(data);
+        
+      //    var tableRow = document.createElement('tr'); 
+
+      //    tableRow.innerHTML = 
+      
+      //   `<td> ${data.current.temp}</td>
+      //    <td> ${data.current.humidity} </td>
+      //    <td> ${data.current.uvi} </td>
+      //    <td> ${data.current.wind_speed} </td>`;
+
+      // weatherDetailsTable.append(tableRow);
+      })
+    }    
 
 
 
